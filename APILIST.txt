@@ -1,0 +1,180 @@
+ProductController
+Get Products - Done.
+Add a product -DOne
+Get one product -Done
+Rate product. - Done
+Filter Product - Done
+
+Rate of Product
+Add Item in Cart
+Get Item in Cart
+Remove items from Cart
+
+userController:
+SignUp - Email Name Password typeofUser(customer , seller) 
+SignIn - (Email , Password)
+
+
+
+# udnerstanding the securiy of API
+# Securing Application 
+
+controlled the access 
+    Who are teh my user 
+Data Privacy
+    verify what users can access
+
+Authentication :
+
+    verify iser's identity
+    confirm the User Claim
+    verify the credentials using token
+        
+            Type of Authentication:
+
+            Basic Authentication :
+                     Check By User credentials.
+                     Basic is Form but not populerly used . alterantive JWT.
+                     it does not use the encryption. so not that secured.
+                     Client need to Store the credentials. which can be exposed
+                     Easy to crack using Brute-force attack. Solution JWT
+
+            API KEY :
+                API Keys are Provided by signing up users on 
+                devlopers portals {Chat-GPT} / Google API / Google resources
+                
+            OAuth >> Protocol >> Authentication :
+                Third party app integration open Authentication. >> facebook or google account login to another Application
+
+            JWT (JSON WEB Token identity)   :
+                Create a reusuable token with option to refresh.
+                Advantages : Encrypted with algo , stateless every time there is new session ,
+                Easy to Scale , can be used for the MObile as well Web.
+                 Structure JSOn Web Token :
+                        Header >> H256 >> JWT
+                        Payload >>  DATA  >>. what resources can user access / API access
+                        Signature >>     
+
+
+
+Authorization :
+            
+    Granting or denying the access to specific resources basis on user's privileges.
+    Controls access to resources based on the user privileges.
+    Example include checking if the autheticated user has permission to check the access a resources.
+
+
+
+API Documnetation :
+Multiple client will be using the API
+APi Documnetation tool.
+Hw /call the api >> need to provide in documentation >> Open API
+How to use the Api documentation for client.
+OpenAPI standard define the Documnetation standard.
+Sawagar Tool implementtion of specification.
+
+
+npm i swagger-ui-express
+npm i swagger
+
+Swagger 2.0
+
+/*{
+    "swagger":"2.0",
+    "info":{
+        "version":"1.0.0",
+        "description":"API for E-Commerce application",
+        "title":"E-commerce API"
+    },
+    "host":"localhost:3200",
+    "securityDefinitions":{
+        "JWT":{
+            "in":"header",
+            "name":"Authorization",
+            "type": "apiKey"
+        }
+    },
+    "paths":{
+        "/api/products": {
+            "get":{
+                "tags": ["Products"],
+                "summary":"Get Products",
+                "description":"User will get all products",
+                "security":[{"JWT": {} }],
+                "responses":{
+                    "200": {
+                        "description":"OK"
+                    },
+                    "401": {
+                        "description": "Unauthorized"
+                    }
+                }
+            }
+        },
+
+        "/api/users/signin": {
+            "post":{
+                "tags": ["Users"],
+                "summary":"Login",
+                "description":"User login to get token",
+                "parameters":[
+                    {
+                        "in":"body",
+                        "name":"body",
+                        "description":"User Credentials",
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "email":{
+                                    "type": "string"
+                                },
+                                "password":{
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                ],
+                "responses":{
+                    "200": {
+                        "description":"OK"
+                    },
+                    "400": {
+                        "description": "Incorrect Credentials"
+                    }
+                }
+            }
+        }
+    }
+}
+
+*/
+
+
+npm i cors
+
+CORS (Cross-Origin Resource Sharing) is a security feature implemented in web browsers to restrict 
+web pages from making requests to a domain different from the one that served the original web page, 
+known as the same-origin policy. When building web applications with frontend and backend servers, 
+CORS issues may arise if they're hosted on different domains, subdomains, or ports. In Node.js, 
+when building APIs or serving resources accessed by web pages from different origins, enabling CORS becomes necessary
+
+Loggin :
+
+to create teh log when the error/req from client/ give info about the user activity
+
+
+
+Winston Library :
+Error Handling
+
+Database :
+relational Database
+Object Oriented Databse
+NoSql Database
+Hirecherical Datbase
+
+
+
+
+
